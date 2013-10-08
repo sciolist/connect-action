@@ -1,0 +1,16 @@
+{
+  "name": "connect-action",
+  "version": "0.1.0",
+  "author": "Daniel Pihlstrom",
+  "license": "BSD",
+  "description": "A simple action system for Connect",
+  "keywords": [ "connect", "action", "actions", "routing", "router" ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sciolist/connect-action.git"
+  },
+  "dependencies": {
+    "connect": "~2.9.0"
+  }
+}
