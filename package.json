@@ -1,10 +1,16 @@
 {
   "name": "connect-action",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Daniel Pihlstrom",
   "license": "BSD",
   "description": "A simple action system for Connect",
-  "keywords": [ "connect", "action", "actions", "routing", "router" ],
+  "keywords": [
+    "connect",
+    "action",
+    "actions",
+    "routing",
+    "router"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
