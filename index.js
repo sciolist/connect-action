@@ -1,4 +1,6 @@
 'use strict';
+var qs = require('qs');
+var url = require('url');
 
 module.exports = exports = function create(app, fn) {
   if(app instanceof Function) {
@@ -30,12 +32,23 @@ Actions.prototype.handle = function handle(req, res, next) {
   req.actions = this;
 
   // req.resolve.action('name', function (url) {});
-  if(!req.resolve) { req.resolve = {} }
+  if(!req.resolve) {
+    req.resolve = function resolve(req, query) {
+      if(req && req.url instanceof Function) req = req.url();
+      if(req === null || req === undefined) return undefined;
+
+      var obj = { pathname: String(req) };
+      if(query) obj.search = qs.stringify(query);
+      return url.format(obj);
+    }
+  }
+
   req.resolve.action = function action(name, query) {
-    var result, opts = { name: name, query: query, req: req };
+    var result, obj, opts = { name: name, req: req };
     for(var i=0; i<self.resolvers.length; ++i) {
       result = self.resolvers[i](opts);
-      if(result) return result;
+      if(!result) continue;
+      return req.resolve(result, query);
     }
   }
 
