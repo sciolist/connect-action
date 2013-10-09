@@ -29,7 +29,7 @@ function Actions() {
 // Connect route-handler, append helper methods
 Actions.prototype.handle = function handle(req, res, next) {
   var self = this;
-  req.actions = this;
+  req.action = this;
 
   // req.resolve.action('name', function (url) {});
   if(!req.resolve) {
