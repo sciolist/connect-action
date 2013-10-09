@@ -74,12 +74,7 @@ Actions.prototype.map = function map(method, name, fn) {
 };
 
 // Resolve action handler from action name
-Actions.prototype.handler = function handler(method, name) {
-  if(arguments.length === 1) {
-    name = method;
-    method = 'GET';
-  }
-
+Actions.prototype.handler = function handler(name, method) {
   var found = this.stack[method + '/' + name];
   if(!found) found = this.stack['all/' + name];
   return found;
