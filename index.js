@@ -104,6 +104,6 @@ Actions.prototype.run = function run(name, method, req, res, next) {
   var method = req.method;
   var action = this.handler(method, name);
   if(!action) { next(); return; }
-  action(req, res, next);
+  return action(req, res, next);
 };
 
