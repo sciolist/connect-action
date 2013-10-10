@@ -99,18 +99,17 @@ Actions.prototype.run = function run(name, method, req, res, next) {
     req = arguments[1];
     res = arguments[2];
     next = arguments[3];
-    method = req.method || 'GET';
+    method = req.method;
   }
   else if(arguments.length === 3) {
     req = arguments[0];
     res = arguments[1];
     next = arguments[2];
-    method = req.method || 'GET';
+    method = req.method;
     name = (req.params && req.params.action) || null;
   }
 
-  var method = req.method;
-  var action = this.handler(method, name);
+  var action = this.handler(name, method);
   if(!action) { next(); return; }
   return action(req, res, next);
 };
