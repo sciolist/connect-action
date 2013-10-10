@@ -1,6 +1,6 @@
 {
   "name": "connect-action",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Daniel Pihlstrom",
   "license": "BSD",
   "description": "A simple action system for Connect",
