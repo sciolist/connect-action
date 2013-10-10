@@ -8,13 +8,13 @@ module.exports = exports = function create(app, fn) {
     app = null;
   }
 
-  if(app && app.actions) {
+  if(app && app.action) {
     throw new Error('actions already registered');
   }
 
   var actions = new Actions();
   if(app) {
-    app.actions = actions;
+    app.action = actions;
     app.use(actions);
   }
   if(fn) actions.urlResolver(fn);
