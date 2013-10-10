@@ -3,7 +3,7 @@ var qs = require('qs');
 var url = require('url');
 
 module.exports = exports = function create(app, fn) {
-  if(app instanceof Function) {
+  if(app && !(app.handle instanceof Function)) {  
     fn = app;
     app = null;
   }
