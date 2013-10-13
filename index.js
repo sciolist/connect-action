@@ -55,9 +55,8 @@ Actions.prototype.handle = function handle(req, res, next) {
   // If redirect middleware exists, add redirect to action function.
   if(res.redirect) {
     res.redirect.action = function action(name, query) {
-      req.resolve.action(name, query, function (url) {
-        res.redirect(url);
-      });
+      var url = req.resolve.action(name, query);
+      res.redirect(url);
     }
   }
 
