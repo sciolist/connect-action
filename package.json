@@ -1,6 +1,6 @@
 {
   "name": "named-actions",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Daniel Pihlstrom",
   "license": "BSD",
   "description": "Map up names to connect style handlers",
